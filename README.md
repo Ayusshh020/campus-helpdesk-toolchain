@@ -61,3 +61,9 @@ npx @modelcontextprotocol/inspector --cli python3 mcp-server/server.py --method 
 ```bash
 echo '{"tool_input": {"file_path": "protected/secrets.json"}}' | python3 campus-helpdesk-plugin/hooks/guard_protected.py
 ```
+
+## Security Hook Path Guarding & Runtime Protection
+- Hook script: `campus-helpdesk-plugin/hooks/guard_protected.py`
+- Trigger event: `BeforeTool` intercepting `write_file|create_file|replace`.
+- Prohibited patterns: `protected/`, `secrets/`, `.env`, `.ssh/`, `credentials`.
+- Denies write attempts with structured JSON-RPC rejection to avoid workspace tampering.
