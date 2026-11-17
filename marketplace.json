@@ -1,0 +1,17 @@
+{
+  "extensions": [
+    {
+      "name": "campus-helpdesk",
+      "version": "1.0.0",
+      "description": "Educational campus helpdesk demonstration extension.",
+      "manifest": "gemini-extension.json",
+      "capabilities": [
+        "Agent Skill: timetable-helper",
+        "MCP tools: get_timetable, get_fee_status",
+        "MCP resource: campus://hostel/rules",
+        "Slash command: /check-timetable",
+        "BeforeTool path guard"
+      ]
+    }
+  ]
+}

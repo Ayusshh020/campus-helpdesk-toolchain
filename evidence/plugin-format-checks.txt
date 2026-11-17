@@ -1,0 +1,4 @@
+JSON valid: gemini-extension.json
+JSON valid: marketplace.json
+JSON valid: hooks/hooks.json
+TOML valid: commands/check-timetable.toml

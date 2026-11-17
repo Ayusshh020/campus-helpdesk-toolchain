@@ -1,0 +1,6 @@
+description = "Look up the official timetable for a batch and weekday."
+prompt = """
+Answer the user's timetable query using the timetable-helper skill and its deterministic lookup script. Never invent classes, rooms, or faculty. Pass the batch and day exactly as supplied by the user; ask for either one if missing.
+
+User request: {{args}}
+"""

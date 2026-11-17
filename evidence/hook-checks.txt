@@ -1,0 +1,6 @@
+$ printf protected input | python3 hooks/guard_protected.py
+{"decision": "deny", "reason": "Write to protected path blocked: 'protected/secret.txt' matches 'protected/'"}
+$ printf normal input | python3 hooks/guard_protected.py
+{"decision": "allow"}
+$ printf env input | python3 hooks/guard_protected.py
+{"decision": "deny", "reason": "Write to protected path blocked: 'config/.env' matches '.env'"}

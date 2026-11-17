@@ -1,0 +1,6 @@
+$ python3 skills/timetable-helper/scripts/test_skill.py
+--- Running Timetable Skill Verification ---
+PASS: Positive test (CSE-A Monday) verified
+PASS: Lab faculty and room verified for CSE-B Wednesday
+PASS: Adversarial hallucination check verified
+--- All Skill Tests Succeeded ---

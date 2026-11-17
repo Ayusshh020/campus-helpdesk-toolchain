@@ -1,0 +1,15 @@
+$ python3 mcp-server/test_server.py
+============================================================
+RUNNING CAMPUS HELPDESK MCP SERVER TEST SUITE
+============================================================
+✅ PASS: get_timetable('CSE-A', 'Monday') -> 4 classes verified
+✅ PASS: get_timetable('CSE-B', 'Wednesday') -> 2 classes verified
+✅ PASS: get_timetable('CSE-A', 'Saturday') correctly raised ValueError: Invalid day 'Saturday'. Official timetable covers weekdays only: Friday, Monday, Thursday, Tuesday, Wednesday.
+✅ PASS: get_timetable('CSE-Z', 'Monday') correctly raised ValueError: Unknown batch 'CSE-Z'. Valid batches in the current system: CSE-A, CSE-B.
+✅ PASS: get_fee_status('STU1001') -> Ayush Mishra (PAID) verified
+✅ PASS: get_fee_status('STU1002') -> Priya Sharma (PENDING, INR 45000) verified
+✅ PASS: get_fee_status('UNKNOWN_999') correctly raised ValueError: Student ID 'UNKNOWN_999' not found. Valid mock student IDs: STU1001, STU1002, STU1003.
+✅ PASS: get_hostel_rules() -> 1529 chars retrieved and verified
+============================================================
+RESULTS: 8/8 tests passed (100.0%)
+============================================================

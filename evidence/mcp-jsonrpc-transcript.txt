@@ -1,0 +1,41 @@
+$ python3 mcp-server/test_jsonrpc.py
+============================================================
+LIVE JSON-RPC 2.0 PROTOCOL TRACE OVER STDIO
+============================================================
+
+--- CLIENT -> SERVER (id=1) ---
+{"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {"protocolVersion": "2024-11-05", "capabilities": {"roots": {"listChanged": true}, "sampling": {}}, "clientInfo": {"name": "campus-helpdesk-audit-client", "version": "1.0.0"}}}
+--- SERVER -> CLIENT (id=1) ---
+{"jsonrpc":"2.0","id":1,"result":{"capabilities":{"prompts":{"listChanged":false},"resources":{"listChanged":false,"subscribe":false},"tools":{"listChanged":false}},"protocolVersion":"2024-11-05","serverInfo":{"name":"campus-helpdesk-server","version":""}}}
+
+--- CLIENT -> SERVER (notification) ---
+{"jsonrpc": "2.0", "method": "notifications/initialized"}
+
+--- CLIENT -> SERVER (id=2) ---
+{"jsonrpc": "2.0", "id": 2, "method": "tools/list", "params": {}}
+--- SERVER -> CLIENT (id=2) ---
+{"jsonrpc":"2.0","id":2,"result":{"tools":[{"description":"Return verified class schedule entries for an exact university batch (e.g., CSE-A) and weekday (e.g., Monday).\nReturns a structured dictionary with batch, day, entries list (including time_slot, course_code, course_name,\nfaculty, room, and type), and count. Raises ValueError for unknown batch or invalid/weekend day names.","inputSchema":{"properties":{"batch":{"title":"Batch","type":"string"},"day":{"title":"Day","type":"string"}},"required":["batch","day"],"type":"object","title":"get_timetableArguments"},"name":"get_timetable"},{"description":"Look up tuition fee payment status, remaining balance, and receipt ID for a valid student ID (e.g., STU1001).\nReturns a dictionary containing student_id, name, semester, status (PAID/PENDING/PARTIAL), balance_inr, and receipt_id.\nRaises ValueError for unrecognized student IDs.","inputSchema":{"properties":{"student_id":{"title":"Student Id","type":"string"}},"required":["student_id"],"type":"object","title":"get_fee_statusArguments"},"name":"get_fee_status"}]}}
+
+--- CLIENT -> SERVER (id=3) ---
+{"jsonrpc": "2.0", "id": 3, "method": "tools/call", "params": {"name": "get_timetable", "arguments": {"batch": "CSE-A", "day": "Monday"}}}
+--- SERVER -> CLIENT (id=3) ---
+{"jsonrpc":"2.0","id":3,"result":{"content":[{"text":"{\n  \"batch\": \"CSE-A\",\n  \"day\": \"Monday\",\n  \"entries\": [\n    {\n      \"time_slot\": \"09:00-10:00\",\n      \"course_code\": \"CS301\",\n      \"course_name\": \"Data Structures\",\n      \"faculty\": \"Dr. P. Kumar\",\n      \"room\": \"LH-101\",\n      \"type\": \"lecture\"\n    },\n    {\n      \"time_slot\": \"10:00-11:00\",\n      \"course_code\": \"CS302\",\n      \"course_name\": \"Operating Systems\",\n      \"faculty\": \"Dr. R. Singh\",\n      \"room\": \"LH-101\",\n      \"type\": \"lecture\"\n    },\n    {\n      \"time_slot\": \"11:15-13:15\",\n      \"course_code\": \"CS301L\",\n      \"course_name\": \"Data Structures Lab\",\n      \"faculty\": \"Dr. P. Kumar\",\n      \"room\": \"LAB-02\",\n      \"type\": \"lab\"\n    },\n    {\n      \"time_slot\": \"14:00-15:00\",\n      \"course_code\": \"CS303\",\n      \"course_name\": \"Database Management Systems\",\n      \"faculty\": \"Dr. S. Mehta\",\n      \"room\": \"LH-102\",\n      \"type\": \"lecture\"\n    }\n  ],\n  \"count\": 4\n}","type":"text"}],"isError":false}}
+
+--- CLIENT -> SERVER (id=4) ---
+{"jsonrpc": "2.0", "id": 4, "method": "tools/call", "params": {"name": "get_fee_status", "arguments": {"student_id": "STU1001"}}}
+--- SERVER -> CLIENT (id=4) ---
+{"jsonrpc":"2.0","id":4,"result":{"content":[{"text":"{\n  \"student_id\": \"STU1001\",\n  \"name\": \"Ayush Mishra\",\n  \"semester\": \"Sem 5\",\n  \"status\": \"PAID\",\n  \"balance_inr\": 0,\n  \"receipt_id\": \"RCP-2026-881\"\n}","type":"text"}],"isError":false}}
+
+--- CLIENT -> SERVER (id=5) ---
+{"jsonrpc": "2.0", "id": 5, "method": "tools/call", "params": {"name": "get_fee_status", "arguments": {"student_id": "INVALID_ID_999"}}}
+--- SERVER -> CLIENT (id=5) ---
+{"jsonrpc":"2.0","id":5,"result":{"content":[{"text":"Error executing tool get_fee_status","type":"text"}],"isError":true}}
+
+--- CLIENT -> SERVER (id=6) ---
+{"jsonrpc": "2.0", "id": 6, "method": "resources/read", "params": {"uri": "campus://hostel/rules"}}
+--- SERVER -> CLIENT (id=6) ---
+{"jsonrpc":"2.0","id":6,"result":{"contents":[{"mimeType":"text/plain","text":"# Official University Hostel Rules – Nimbus Labs University\n\n## Curfew Policy\n- Weekdays (Monday–Friday): All residential students must return to their respective hostel blocks by 10:00 PM.\n- Weekends (Saturday–Sunday): Extended curfew is permitted until 11:30 PM with biometric check-in.\n- Overnight leave requires a written application submitted to the warden 48 hours in advance.\n\n## Electrical Appliances Policy\n- Permitted items: Personal laptops, mobile phone chargers, and low-wattage electric kettles (maximum 1000W).\n- Strictly prohibited: Induction cooktops, microwave ovens, immersion water heaters, and heavy electric irons.\n- Any prohibited appliance found during room inspection will be confiscated immediately and subject to a fine.\n\n## Quiet Hours & Conduct\n- Mandatory quiet hours are observed daily from 11:00 PM to 06:00 AM.\n- Playing loud music, shouting in corridors, or hosting gatherings during quiet hours is prohibited.\n- Disciplinary ladder: 1st violation = written warning, 2nd violation = parent notification, 3rd violation = hostel suspension.\n\n## Visitor & Common Room Guidelines\n- External day visitors are permitted only in the designated ground-floor visitor lounge between 09:00 AM and 08:00 PM.\n- Visitors must sign the visitor ledger at reception; overnight visitors are strictly prohibited.\n\n## Campus Wi-Fi Usage\n- Campus Wi-Fi is provided 24/7 for educational and research purposes.\n- P2P file sharing, unauthorized penetration testing, and bandwidth-monopolizing activities are prohibited.","uri":"campus://hostel/rules"}]}}
+
+============================================================
+ALL JSON-RPC EXCHANGES COMPLETED SUCCESSFULLY
+============================================================

@@ -1,0 +1,18 @@
+{
+  "hooks": {
+    "BeforeTool": [
+      {
+        "matcher": "write_file|create_file|edit_file|append_file",
+        "hooks": [
+          {
+            "name": "guard-protected-paths",
+            "type": "command",
+            "command": "python3 ${extensionPath}/hooks/guard_protected.py",
+            "timeout": 3000,
+            "description": "Blocks writes targeting protected paths, secrets, and credential files."
+          }
+        ]
+      }
+    ]
+  }
+}

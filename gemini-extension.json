@@ -1,0 +1,13 @@
+{
+  "name": "campus-helpdesk",
+  "version": "1.0.0",
+  "description": "An educational campus helpdesk extension with timetable, fee-status, and hostel-rules examples.",
+  "contextFileName": "GEMINI.md",
+  "mcpServers": {
+    "campus-helpdesk-mcp": {
+      "command": "python3",
+      "args": ["${extensionPath}/mcp-server/server.py"],
+      "cwd": "${extensionPath}"
+    }
+  }
+}
