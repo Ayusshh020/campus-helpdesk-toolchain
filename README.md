@@ -61,3 +61,9 @@ npx @modelcontextprotocol/inspector --cli python3 mcp-server/server.py --method 
 ```bash
 echo '{"tool_input": {"file_path": "protected/secrets.json"}}' | python3 campus-helpdesk-plugin/hooks/guard_protected.py
 ```
+
+## MCP Server Deployment & Health
+- Managed by `mcp-server/server.py` over stdio transport.
+- Tools: `get_timetable` and `get_fee_status`.
+- Resources: `campus://hostel/rules`.
+- Health check utility: run `python3 mcp-server/healthcheck.py`.
