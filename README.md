@@ -2,6 +2,8 @@
 
 An educational AI-agent toolchain demonstration for the fictional Nimbus Labs University scenario. It showcases Agent Skills, a Gemini CLI extension, the Model Context Protocol (MCP), and Git worktree concurrency using mock campus records.
 
+**GitHub repository:** https://github.com/Ayusshh020/campus-helpdesk-toolchain
+
 ## Architecture & Components
 
 ```
