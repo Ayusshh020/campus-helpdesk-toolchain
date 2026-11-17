@@ -1,0 +1,14 @@
+{
+  "hooks": [
+    {
+      "name": "guard-protected-paths",
+      "event": "BeforeTool",
+      "tools": ["write_file", "create_file", "edit_file", "append_file"],
+      "command": "python3",
+      "args": ["./hooks/guard_protected.py"],
+      "description": "Blocks any file write operation targeting protected paths such as protected/, secrets/, .env, .ssh/, or credentials.",
+      "timeout_ms": 3000,
+      "on_error": "deny"
+    }
+  ]
+}

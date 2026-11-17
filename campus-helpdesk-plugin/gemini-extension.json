@@ -1,0 +1,18 @@
+{
+  "name": "campus-helpdesk",
+  "version": "1.0.0",
+  "description": "Campus Helpdesk Agent with timetable lookup, fee status, and hostel rules.",
+  "contextFileName": "GEMINI.md",
+  "skills": ["../skills/timetable-helper"],
+  "mcpServers": {
+    "campus-helpdesk-mcp": {
+      "command": "python3",
+      "args": ["../mcp-server/server.py"],
+      "env": {}
+    }
+  },
+  "hooks": {
+    "enabled": true,
+    "hooksFile": "./hooks/hooks.json"
+  }
+}

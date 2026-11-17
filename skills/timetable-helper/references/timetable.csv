@@ -1,0 +1,25 @@
+batch,day,time_slot,course_code,course_name,faculty,room,type
+CSE-A,Monday,09:00-10:00,CS301,Data Structures,Dr. P. Kumar,LH-101,lecture
+CSE-A,Monday,10:00-11:00,CS302,Operating Systems,Dr. R. Singh,LH-101,lecture
+CSE-A,Monday,11:15-13:15,CS301L,Data Structures Lab,Dr. P. Kumar,LAB-02,lab
+CSE-A,Monday,14:00-15:00,CS303,Database Management Systems,Dr. S. Mehta,LH-102,lecture
+CSE-A,Tuesday,09:00-10:00,CS304,Computer Networks,Dr. A. Patel,LH-103,lecture
+CSE-A,Tuesday,10:00-11:00,CS301,Data Structures,Dr. P. Kumar,LH-101,lecture
+CSE-A,Tuesday,14:00-16:00,CS303L,DBMS Lab,Dr. S. Mehta,LAB-01,lab
+CSE-A,Wednesday,09:00-10:00,CS302,Operating Systems,Dr. R. Singh,LH-102,lecture
+CSE-A,Wednesday,10:00-11:00,CS303,Database Management Systems,Dr. S. Mehta,LH-102,lecture
+CSE-A,Wednesday,11:00-12:00,CS304,Computer Networks,Dr. A. Patel,LH-103,lecture
+CSE-A,Thursday,09:00-10:00,CS301,Data Structures,Dr. P. Kumar,LH-101,lecture
+CSE-A,Thursday,14:00-16:00,CS302L,OS Lab,Dr. R. Singh,LAB-03,lab
+CSE-A,Friday,09:00-10:00,CS303,Database Management Systems,Dr. S. Mehta,LH-102,lecture
+CSE-A,Friday,10:00-11:00,CS304,Computer Networks,Dr. A. Patel,LH-103,lecture
+CSE-B,Monday,09:00-10:00,CS301,Data Structures,Dr. M. Joshi,LH-201,lecture
+CSE-B,Monday,11:00-12:00,CS302,Operating Systems,Dr. K. Nair,LH-202,lecture
+CSE-B,Tuesday,09:00-10:00,CS303,Database Management Systems,Dr. V. Gupta,LH-201,lecture
+CSE-B,Tuesday,11:15-13:15,CS301L,Data Structures Lab,Dr. M. Joshi,LAB-04,lab
+CSE-B,Wednesday,09:00-10:00,CS304,Computer Networks,Dr. L. Rao,LH-203,lecture
+CSE-B,Wednesday,14:00-16:00,CS302L,OS Lab,Dr. K. Nair,LAB-01,lab
+CSE-B,Thursday,09:00-10:00,CS301,Data Structures,Dr. M. Joshi,LH-201,lecture
+CSE-B,Thursday,10:00-11:00,CS303,Database Management Systems,Dr. V. Gupta,LH-201,lecture
+CSE-B,Friday,09:00-10:00,CS302,Operating Systems,Dr. K. Nair,LH-202,lecture
+CSE-B,Friday,14:00-16:00,CS303L,DBMS Lab,Dr. V. Gupta,LAB-04,lab
