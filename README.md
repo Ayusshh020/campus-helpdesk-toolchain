@@ -10,7 +10,7 @@ campus-helpdesk-toolchain/
 │   └── timetable-helper/          # Timetable lookup skill with progressive disclosure
 │       ├── SKILL.md
 │       ├── references/            # timetable.csv, column_dictionary.md, edge_cases.md
-│       └── scripts/               # lookup_timetable.py
+│       └── scripts/               # lookup_timetable.py, test_skill.py
 ├── campus-helpdesk-plugin/        # Gemini CLI / Antigravity extension package
 │       ├── gemini-extension.json  # Extension manifest declaring skills, MCP, and hooks
 │       ├── marketplace.json       # Distribution & marketplace catalog entry
@@ -21,6 +21,7 @@ campus-helpdesk-toolchain/
 │       ├── server.py              # Tools: get_timetable, get_fee_status; Resource: hostel rules
 │       ├── test_server.py         # 8-case automated test suite
 │       ├── test_jsonrpc.py        # Live JSON-RPC 2.0 wire protocol tester
+│       ├── healthcheck.py         # Healthcheck verification utility
 │       └── requirements.txt       # mcp>=1.0.0
 └── docs/                          # Academic report and verification documentation
     ├── part-a-claim-audit.md      # 10 CTO claims audited against primary sources
@@ -67,3 +68,9 @@ echo '{"tool_input": {"file_path": "protected/secrets.json"}}' | python3 campus-
 - Trigger event: `BeforeTool` intercepting `write_file|create_file|replace`.
 - Prohibited patterns: `protected/`, `secrets/`, `.env`, `.ssh/`, `credentials`.
 - Denies write attempts with structured JSON-RPC rejection to avoid workspace tampering.
+
+## MCP Server Deployment & Health
+- Managed by `mcp-server/server.py` over stdio transport.
+- Tools: `get_timetable` and `get_fee_status`.
+- Resources: `campus://hostel/rules`.
+- Health check utility: run `python3 mcp-server/healthcheck.py`.
